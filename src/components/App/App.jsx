@@ -41,6 +41,7 @@ export default class App extends Component {
       }));
     } catch (error) {
       this.setState({ error: error.message, status: 'rejected' });
+      console.log(error.message);
     }
   };
 
@@ -63,7 +64,7 @@ export default class App extends Component {
           </h1>
         )}
 
-        {status !== 'idle' && images.length === 0 && (
+        {status !== 'idle' && status !== 'panding' && images.length === 0 && (
           <h1 className={css.error}>No images by request "{value}".</h1>
         )}
 
